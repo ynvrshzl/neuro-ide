@@ -1,0 +1,8 @@
+# Heaviest known matter in existence.
+node_modules/
+
+# IDE-specific configs, never track
+.vscode/*
+
+# IDE-specific configs, negative lookahead (track these)
+!.vscode/extensions.json

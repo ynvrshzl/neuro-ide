@@ -1,0 +1,19 @@
+{
+  "name": "neuro-ide",
+  "version": "0.0.0",
+  "description": "Neuro IDE",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "debug": "which node && node -v",
+    "compile-sass": "npx sass scss/index.scss:style.min.css --style=compressed --quiet",
+    "watch-sass": "npx sass scss/index.scss:style.min.css --style=compressed --watch --quiet",
+    "serve": "npx live-server --no-browser",
+    "readme": "code \"README.md\"",
+    "start": "npm run serve"
+  },
+  "keywords": [],
+  "author": "youniverse-hazl",
+  "license": "ISC",
+  "dependencies": {}
+}
