@@ -12,14 +12,317 @@
         box-sizing: border-box;
     }
 
+    html,
     body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
     }
+
+    body {
+        font-family: 'Helvetica', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    @media (width < 512px) {
+        body {
+            /* font-size: 1.5rem; */
+        }
+    }
+
+    @media (width > 512px) {
+        body {
+            font-size: .9rem;
+        }
+    }
+
+    main.app {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        /* display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "header-bar"
+        "body"
+        "status bar"; */
+    }
+
+    section.body {
+        overflow-y: auto;
+        padding: 15px;
+        height: 1fr;
+        mask: linear-gradient(0deg white 25%, blue);
+        border-left: 5px solid var(--color-accent);
+        /* margin: 15px; */
+        /* grid-area: body; */
+    }
+
+    /* section.body::before
+    {
+        display: block;
+        height: 100%;
+        width: 100%;
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+
+        background: linear-gradient(0deg white 25%, blue);
+    } */
+    :root {
+        --color-text-faint: rgba(128, 128, 128, 0.318);
+        --color-text-on-accent: white;
+        --color-background: white;
+        --color-accent: green;
+        --color-accent-transparent: color-mix(in srgb, var(--color-accent) 25%, transparent);
+        --color-accent-darker: color-mix(in srgb, var(--color-accent) 50%, black);
+    }
+
+    .input-cards input[type=text],
+    .input-cards textarea {
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+        margin-block: 5px;
+        border: 1px solid var(--color-text-faint);
+        border: 1px solid transparent;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    button:hover,
+    input:hover,
+    textarea:hover {
+        outline: 3px solid orange;
+    }
+
+    button:active,
+    input:active,
+    textarea:active {
+        outline: 3px solid dodgerblue;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input[type=text]:focus,
+    textarea:focus {
+        border: 1px solid var(--color-accent);
+        outline: 5px solid var(--color-accent-transparent);
+    }
+
+    p {
+        opacity: 0.5;
+    }
+
+    .description {
+        opacity: 0.2;
+        font-size: 0.9em;
+    }
+
+    .status-bar,
+    .header-bar {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.8em;
+        /* background-color: var(--color-background); */
+        padding: 5px;
+    }
+
+    .status-bar {
+        /* grid-area: "status-bar"; */
+        border-top: 1px solid var(--color-text-faint);
+        /* background-color: var(--color-accent);
+        color: var(--color-text-on-accent); */
+        /* box-shadow: 0px -55px 55px 55px white; */
+        z-index: 1;
+    }
+
+    .header-bar {
+        /* box-shadow: 0px 55px 55px 55px white; */
+        z-index: 1;
+        /* grid-area: "header-bar"; */
+        border-bottom: 1px solid var(--color-text-faint);
+    }
+
+    .spacer {
+        height: 25vh
+    }
+
+    h1 {
+        /* margin: 0; */
+        /* font-size: 4em; */
+    }
+
+    ::selection,
+    ::-moz-selection {
+        background-color: var(--color-accent-transparent);
+        color: var(--color-accent);
+    }
+
+    ul {
+        list-style-type: circle;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        border-left: 3px solid var(--color-accent-transparent);
+        padding-inline-start: 1rem;
+
+    }
+
+    button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        border-radius: 25px;
+        border: 0;
+        padding: 10px;
+        cursor: pointer;
+        font-family: inherit;
+        outline: none;
+        user-select: none;
+        font-size: 0.9em;
+        background-color: transparent;
+        /* mask: linear-gradient(0deg white, black); */
+        /* box-shadow: 0 3px 0px 1px rgba(255, 255, 255, 0.479) inset, 0px 3px 3px 5px #00000055; */
+
+    }
+
+    button:hover {
+        background-color: rgba(128, 128, 128, 0.256);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a {
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+    }
+
+    .cta {
+        /* background: linear-gradient(180deg, var(--color-accent) 50%, var(--color-accent-darker)); */
+        background-color: var(--color-accent);
+        color: var(--color-text-on-accent);
+    }
+
+    ::marker {
+        color: var(--color-accent);
+
+        /* outline: 3px solid var(--color-accent);
+        outline-offset: 3px; */
+
+    }
+
+    /* ::-webkit-scrollbar */
 </style>
 
-<body>
-    <h1>Neuro IDE</h1>
-    <p>Alpha version</p>
+<body spellcheck="false">
+
+    <main class="app">
+        <section class="header-bar">
+
+            <section class="area">
+                <button type="button">&block; Cursor</button>
+            </section>
+
+            <section class="area">
+                <span></span>
+            </section>
+
+            <section class="area">
+                <button type="button" class="cta">Compile</button>
+            </section>
+        </section>
+
+
+        <section class="body">
+            <section class="spacer"></section>
+
+            <header>
+                <p class="description">(c) 2026 Micromacro Neuro Research Laboratories</p>
+                <h1>NeuroIDE</h1>
+                <a href="">Offline, Local-first browser access</a>
+                <p>Alpha Implementation, Wireframe model</p>
+            </header>
+            <section class="spacer"></section>
+
+            <section>
+                <h1>My Notebook</h1>
+                <p>"Hazl's Science Laboratory Research Notebook"</p>
+                <p class="description">25 Uncompiled field notes.</p>
+            </section>
+            
+            <section class="spacer"></section>
+
+            <section class="input-cards">
+                <ul>
+                    <li>
+                        <p class="description">You wrote at 8:00 PM</p>
+                        <input type="text" name="" id="" placeholder="Quick thought capture..."
+                            value="Quote I remembered today...">
+                    </li>
+                    <li>
+                        <p class="description">You wrote at 8:00 PM</p>
+                        <textarea name="" id="" cols="30"
+                            rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur labore a harum totam laborum laudantium voluptatum similique reiciendis doloribus quos. Quae provident quasi voluptas.Dignissimos quos architecto doloribus at quibusdam!</textarea>
+                    </li>
+                    <li>
+                        <p class="description">You wrote at 8:00 PM</p>
+                        <img src="https://images.pexels.com/photos/1379620/pexels-photo-1379620.jpeg?w=500" alt="" srcset="">
+                        <textarea name="" id="" cols="30"
+                            rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur labore a harum totam laborum laudantium voluptatum similique reiciendis doloribus quos. Quae provident quasi voluptas.Dignissimos quos architecto doloribus at quibusdam!</textarea>
+                    </li>
+                </ul>
+                <section class="spacer"></section>
+                <p class="description">You wrote at 8:00 PM</p>
+                <input style="opacity: .3;" disabled type="text" name="" id="" placeholder="+ Add new card">
+                <p class="description">You wrote at 8:00 PM</p>
+                <input type="text" name="" id="" placeholder="Quick thought capture...">
+                <p class="description">You wrote at 8:00 PM</p>
+                <input type="text" name="" id="" placeholder="Capture...">
+                <p class="description">You wrote at 8:00 PM</p>
+                <textarea name="" id="" cols="30"
+                    rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur labore a harum totam laborum laudantium voluptatum similique reiciendis doloribus quos. Quae provident quasi voluptas.Dignissimos quos architecto doloribus at quibusdam!</textarea>
+                <p class="description">You wrote at 8:00 PM</p>
+                <textarea name="" id="" cols="30" placeholder="Placeholder..." rows="10"></textarea>
+
+            </section>
+        </section>
+        <!-- <section class="spacer"> </section> -->
+
+        <section class="status-bar">
+
+            <section class="area">
+                <button type="button">Commands</button>
+            </section>
+
+            <section class="area">
+                <span>(2026.03.04.15.30)</span>
+                <!-- Wednesday, March 4, 2026 at 3:30 PM -->
+            </section>
+
+
+        </section>
+    </main>
 
 </body>
 
