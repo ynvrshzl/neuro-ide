@@ -24,17 +24,6 @@
         font-family: 'Helvetica', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
-    @media (width < 512px) {
-        body {
-            /* font-size: 1.5rem; */
-        }
-    }
-
-    @media (width > 512px) {
-        body {
-            font-size: .9rem;
-        }
-    }
 
     main.app {
         width: inherit;
@@ -61,6 +50,23 @@
         /* grid-area: body; */
     }
 
+    /* mobile */
+    @media (width < 512px) {
+        body {
+            /* font-size: 1.5rem; */
+        }
+    }
+    /* desktop */
+    @media (width > 512px) {
+        section.body {
+            max-width: 400px;
+            margin: 0 auto;
+            border-left: 0px;
+        }
+        body {
+            font-size: .9rem;
+        }
+    }
     /* section.body::before
     {
         display: block;
@@ -74,11 +80,15 @@
 
         background: linear-gradient(0deg white 25%, blue);
     } */
-    :root {
+    
+    
+    /* :root */
+    body 
+    {
         --color-text-faint: rgba(128, 128, 128, 0.318);
         --color-text-on-accent: white;
         --color-background: white;
-        --color-accent: green;
+        --color-accent: rgb(197, 0, 108);
         --color-accent-transparent: color-mix(in srgb, var(--color-accent) 25%, transparent);
         --color-accent-darker: color-mix(in srgb, var(--color-accent) 50%, black);
     }
@@ -94,7 +104,11 @@
         font-family: inherit;
         font-size: 1rem;
     }
-
+    body
+    {
+        caret-color: var(--color-accent);
+    }
+    img:hover,
     button:hover,
     input:hover,
     textarea:hover {
@@ -195,12 +209,13 @@
         font-size: 0.9em;
         background-color: transparent;
         /* mask: linear-gradient(0deg white, black); */
+        border: 1px solid var(--color-text-faint);
         /* box-shadow: 0 3px 0px 1px rgba(255, 255, 255, 0.479) inset, 0px 3px 3px 5px #00000055; */
 
     }
 
     button:hover {
-        background-color: rgba(128, 128, 128, 0.256);
+        /* background-color: rgba(128, 128, 128, 0.1); */
     }
 
     a:hover {
@@ -232,6 +247,20 @@
 
     }
 
+    input[type=color] {
+        appearance: none;
+        border: 0;
+        outline: 5px solid var(--color-accent);
+        outline-offset: -5px;
+        margin: 0;
+        padding: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        vertical-align: middle;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
     /* ::-webkit-scrollbar */
 </style>
 
@@ -241,24 +270,27 @@
         <section class="header-bar">
 
             <section class="area">
-                <button type="button">&block; Cursor</button>
+                <input type="color" name="" id="">
             </section>
 
             <section class="area">
-                <span></span>
+                <div>Neuro IDE</div>
             </section>
 
             <section class="area">
                 <button type="button" class="cta">Compile</button>
+                <button type="button">Commands</button>
             </section>
         </section>
 
 
         <section class="body">
+
             <section class="spacer"></section>
 
             <header>
                 <p class="description">(c) 2026 Micromacro Neuro Research Laboratories</p>
+                <h1 style="font-size: 8rem; opacity:0.1; margin:0;">IDE</h1>
                 <h1>NeuroIDE</h1>
                 <a href="">Offline, Local-first browser access</a>
                 <p>Alpha Implementation, Wireframe model</p>
@@ -270,7 +302,7 @@
                 <p>"Hazl's Science Laboratory Research Notebook"</p>
                 <p class="description">25 Uncompiled field notes.</p>
             </section>
-            
+
             <section class="spacer"></section>
 
             <section class="input-cards">
@@ -287,7 +319,8 @@
                     </li>
                     <li>
                         <p class="description">You wrote at 8:00 PM</p>
-                        <img src="https://images.pexels.com/photos/1379620/pexels-photo-1379620.jpeg?w=500" alt="" srcset="">
+                        <img src="https://images.pexels.com/photos/1379620/pexels-photo-1379620.jpeg?w=500" alt=""
+                            srcset="">
                         <textarea name="" id="" cols="30"
                             rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur labore a harum totam laborum laudantium voluptatum similique reiciendis doloribus quos. Quae provident quasi voluptas.Dignissimos quos architecto doloribus at quibusdam!</textarea>
                     </li>
@@ -312,7 +345,7 @@
         <section class="status-bar">
 
             <section class="area">
-                <button type="button">Commands</button>
+                <span>Neuro IDE</span>
             </section>
 
             <section class="area">
@@ -324,6 +357,16 @@
         </section>
     </main>
 
+    <script type="application/javascript" defer>
+        const colorpicker = document.body.querySelector("input[type=color]");
+        const accent = getComputedStyle(document.body).getPropertyValue("--color-accent").trim();
+        colorpicker.value = accent;
+        console.log(accent);
+        
+
+        colorpicker.addEventListener("input", (e) => { console.log(e.target.value);
+         document.body.style.cssText = `--color-accent: ${e.target.value}`})
+    </script>
 </body>
 
 </html>
