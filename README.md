@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/version-alpha_2.0.0-orange?logo=git)](#) [![](https://img.shields.io/badge/build-prototype-purple)](#)
 
 # Neuro IDE
-A self-modifying, portable, executable document
+A self-modifying, portable, executable HTML document
 
 
 ## Inspiration sources
