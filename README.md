@@ -1,7 +1,10 @@
-<img alt="image" src="https://github.com/user-attachments/assets/1d63ec28-a229-4e36-a706-85eb4bb50b3a" />
+<!-- <img alt="image" src="https://github.com/user-attachments/assets/1d63ec28-a229-4e36-a706-85eb4bb50b3a" /> -->
+
+[![](https://img.shields.io/badge/version-alpha_2.0.0-orange?logo=git)](#) [![](https://img.shields.io/badge/build-prototype-purple)](#)
 
 # Neuro IDE
-[![](https://img.shields.io/badge/version-alpha-orange?logo=git)](#) [![](https://img.shields.io/badge/build-prototype-purple)](#)
+A self-modifying, portable, executable document
+
 
 __A personal solution for a noisy brain.__  Personal chaos management system. Browser + web technology + obsidian + local capture tool
 
